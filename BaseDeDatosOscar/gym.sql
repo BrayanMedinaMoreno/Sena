@@ -26,18 +26,21 @@ create table instructores (
 
 create table horario(
 	id_horario varchar(2) primary key not null,
-    hora_comienzo datetime not null,
-    hora_final datetime not null,
+    hora_comienzo time not null,
+    hora_final time not null,
     horas_totales int as(hour(hora_final)-hour(hora_comienzo)) 
 );
 
 
-insert into horario (id_horario,hora_comienzo,hora_final,horas_totales) values ();
 
-create table maquinas (
-	id_maquina varchar(10) primary key not null,
-    nombre_maquina varchar(30) not null
+
+CREATE TABLE maquinas (
+    id_maquina VARCHAR(10) PRIMARY KEY NOT NULL,
+    nombre_maquina VARCHAR(30) NOT NULL,
+    estado BOOL NOT NULL
 );
+
+
 
 create table reserva (
 	id_reserva varchar(10) primary key not null,
@@ -51,6 +54,8 @@ create table reserva (
     foreign key (id_maquina) references maquinas(id_maquina),
     foreign key (id_horario) references horario(id_horario)
 );
+
+
 
 insert into membresia (id_membresia,costo_membresia) values ("1",50000);
 insert into membresia (id_membresia,costo_membresia) values ("2",50000);
@@ -84,5 +89,38 @@ insert into instructores (id_instructor,nombre_instructor) values ("7","luisa");
 insert into instructores (id_instructor,nombre_instructor) values ("8","aldemar");
 insert into instructores (id_instructor,nombre_instructor) values ("9","alberto");
 insert into instructores (id_instructor,nombre_instructor) values ("10","pedro");
+
+insert into horario(id_horario, hora_comienzo, hora_final) values ('1', '08:00:00', '12:00:00');
+insert into horario(id_horario, hora_comienzo, hora_final) values ('2', '09:00:00', '13:00:00');
+insert into horario(id_horario, hora_comienzo, hora_final) values ('3', '10:00:00', '14:00:00');
+insert into horario(id_horario, hora_comienzo, hora_final) values ('4', '11:00:00', '15:00:00');
+insert into horario(id_horario, hora_comienzo, hora_final) values ('5', '12:00:00', '16:00:00');
+insert into horario(id_horario, hora_comienzo, hora_final) values ('6', '13:00:00', '17:00:00');
+insert into horario(id_horario, hora_comienzo, hora_final) values ('7', '14:00:00', '18:00:00');
+insert into horario(id_horario, hora_comienzo, hora_final) values ('8', '15:00:00', '19:00:00');
+
+-- select * from horario;
+
+insert into maquinas (id_maquina,nombre_maquina,estado) values ("1","caminadora",1);
+insert into maquinas (id_maquina,nombre_maquina,estado) values ("2","cinta de correr",1);
+insert into maquinas (id_maquina,nombre_maquina,estado) values ("3","bicicleta vertical",1);
+insert into maquinas (id_maquina,nombre_maquina,estado) values ("4","eliptica",1);
+insert into maquinas (id_maquina,nombre_maquina,estado) values ("5","remo",1);
+insert into maquinas (id_maquina,nombre_maquina,estado) values ("6","banco olimpico",1);
+insert into maquinas (id_maquina,nombre_maquina,estado) values ("7","maquina de poleas",1);
+insert into maquinas (id_maquina,nombre_maquina,estado) values ("8","press banca",1);
+insert into maquinas (id_maquina,nombre_maquina,estado) values ("9","maquina de remo",1);
+insert into maquinas (id_maquina,nombre_maquina,estado) values ("10","maquina para pierna",1);
+
+insert into reserva (id_reserva,costo,id_cliente,id_instructor,id_maquina,id_horario) values ("1","13000","1","1","1","1");
+insert into reserva (id_reserva,costo,id_cliente,id_instructor,id_maquina,id_horario) values ("2","13000","2","2","2","2");
+insert into reserva (id_reserva,costo,id_cliente,id_instructor,id_maquina,id_horario) values ("3","13000","3","3","3","3");
+insert into reserva (id_reserva,costo,id_cliente,id_instructor,id_maquina,id_horario) values ("4","13000","4","4","4","4");
+insert into reserva (id_reserva,costo,id_cliente,id_instructor,id_maquina,id_horario) values ("5","13000","5","5","5","5");
+insert into reserva (id_reserva,costo,id_cliente,id_instructor,id_maquina,id_horario) values ("6","13000","6","6","6","6");
+insert into reserva (id_reserva,costo,id_cliente,id_instructor,id_maquina,id_horario) values ("7","13000","7","7","7","7");
+insert into reserva (id_reserva,costo,id_cliente,id_instructor,id_maquina,id_horario) values ("8","13000","8","8","8","8");
+insert into reserva (id_reserva,costo,id_cliente,id_instructor,id_maquina,id_horario) values ("9","13000","9","9","9","9");
+insert into reserva (id_reserva,costo,id_cliente,id_instructor,id_maquina,id_horario) values ("10","13000","10","10","10","10");
 
 
