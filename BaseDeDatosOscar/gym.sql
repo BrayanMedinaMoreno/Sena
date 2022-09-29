@@ -29,18 +29,20 @@ create table horario(
     hora_comienzo time not null,
     hora_final time not null,
     horas_totales int as(hour(hora_final)-hour(hora_comienzo)) 
+    -- horas_diferentes int as(hour(hora_final)!=hour(hora_comienzo)) -- intentar solucionar esta wea 
 );
 
-
-
+ -- select * from horario;
+-- select * from horario; -- prueba la wea del tiempo porque aja 
 
 CREATE TABLE maquinas (
     id_maquina VARCHAR(10) PRIMARY KEY NOT NULL,
     nombre_maquina VARCHAR(30) NOT NULL,
-    estado BOOL NOT NULL
+    disponible time default "8:00:00",
+    estado BOOL as (round(rand(1))) 
 );
 
-
+-- SELECT * from maquinas;  -- probar la wea random
 
 create table reserva (
 	id_reserva varchar(10) primary key not null,
@@ -98,19 +100,21 @@ insert into horario(id_horario, hora_comienzo, hora_final) values ('5', '12:00:0
 insert into horario(id_horario, hora_comienzo, hora_final) values ('6', '13:00:00', '17:00:00');
 insert into horario(id_horario, hora_comienzo, hora_final) values ('7', '14:00:00', '18:00:00');
 insert into horario(id_horario, hora_comienzo, hora_final) values ('8', '15:00:00', '19:00:00');
+insert into horario(id_horario, hora_comienzo, hora_final) values ('9', '16:00:00', '19:00:00');
+insert into horario(id_horario, hora_comienzo, hora_final) values ('10', '17:00:00', '19:00:00');
 
--- select * from horario;
 
-insert into maquinas (id_maquina,nombre_maquina,estado) values ("1","caminadora",1);
-insert into maquinas (id_maquina,nombre_maquina,estado) values ("2","cinta de correr",1);
-insert into maquinas (id_maquina,nombre_maquina,estado) values ("3","bicicleta vertical",1);
-insert into maquinas (id_maquina,nombre_maquina,estado) values ("4","eliptica",1);
-insert into maquinas (id_maquina,nombre_maquina,estado) values ("5","remo",1);
-insert into maquinas (id_maquina,nombre_maquina,estado) values ("6","banco olimpico",1);
-insert into maquinas (id_maquina,nombre_maquina,estado) values ("7","maquina de poleas",1);
-insert into maquinas (id_maquina,nombre_maquina,estado) values ("8","press banca",1);
-insert into maquinas (id_maquina,nombre_maquina,estado) values ("9","maquina de remo",1);
-insert into maquinas (id_maquina,nombre_maquina,estado) values ("10","maquina para pierna",1);
+
+insert into maquinas (id_maquina,nombre_maquina) values ("1","caminadora");
+insert into maquinas (id_maquina,nombre_maquina) values ("2","cinta de correr");
+insert into maquinas (id_maquina,nombre_maquina) values ("3","bicicleta vertical");
+insert into maquinas (id_maquina,nombre_maquina) values ("4","eliptica");
+insert into maquinas (id_maquina,nombre_maquina) values ("5","remo");
+insert into maquinas (id_maquina,nombre_maquina) values ("6","banco olimpico");
+insert into maquinas (id_maquina,nombre_maquina) values ("7","maquina de poleas");
+insert into maquinas (id_maquina,nombre_maquina) values ("8","press banca");
+insert into maquinas (id_maquina,nombre_maquina) values ("9","maquina de remo");
+insert into maquinas (id_maquina,nombre_maquina) values ("10","maquina para pierna");
 
 insert into reserva (id_reserva,costo,id_cliente,id_instructor,id_maquina,id_horario) values ("1","13000","1","1","1","1");
 insert into reserva (id_reserva,costo,id_cliente,id_instructor,id_maquina,id_horario) values ("2","13000","2","2","2","2");
@@ -124,3 +128,14 @@ insert into reserva (id_reserva,costo,id_cliente,id_instructor,id_maquina,id_hor
 insert into reserva (id_reserva,costo,id_cliente,id_instructor,id_maquina,id_horario) values ("10","13000","10","10","10","10");
 
 
+-- 1 --
+-- select * from maquinas where estado=1;
+
+-- 2 --
+-- select nombre_maquina,disponible from maquinas where estado = 1;
+
+-- 3 --
+select cliente.nombre, maquinas.nombre_maquina, instructores.nombre_instructor, horario.hora_comienzo, horario.hora_final from cliente inner join maquinas inner join instructores inner join horario inner join reserva where reserva.id_cliente=cliente.id_cliente and reserva.id_instructor=instructores.id_instructor and reserva.id_maquina=maquinas.id_maquina and reserva.id_horario=horario.id_horario; 
+
+-- 4 --
+select cliente.nombre, instructores.nombre_instructor from cliente inner join instructores inner join reserva where reserva.id_cliente=cliente.id_cliente and reserva.id_instructor=instructores.id_instructor;
