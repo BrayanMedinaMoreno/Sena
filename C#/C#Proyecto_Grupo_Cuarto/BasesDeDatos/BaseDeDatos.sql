@@ -1,6 +1,6 @@
 USE HOLI;
 GO
-DROP DATABASE Boostlol;
+DROP DATABASE if exists Boostlol;
 GO
 Create database Boostlol;
 GO
@@ -8,7 +8,7 @@ Use Boostlol;
 GO
 
 Create table EloBooster (
-	ID_Booster int identity(0,1) primary key,
+	ID_Booster int identity(1,1) primary key,
 	Usuario_Booster varchar (20),
 	Discord_Booster varchar (20),
 	Correo_Booster varchar (40),
@@ -21,11 +21,10 @@ Create table EloBooster (
 	Fecha_de_Ingreso_Booster Datetime default getdate()
 );
 GO
--- insert into EloBooster (Usuario_Booster,Discord_Booster,Correo_Booster,Pais_Booster,Rango_Booster,Servidores_Booster,Metodo_de_pago_Booster,Posiciones_Booster,Tipo_de_Booster) values ('Dios','UK/haru#3579','SoyUnEnano@hotmail.com','La Aldea Pitufa','plata','lan','Paypal','JunGler','Aram level');
+insert into EloBooster (Usuario_Booster,Discord_Booster,Correo_Booster,Pais_Booster,Rango_Booster,Servidores_Booster,Metodo_de_pago_Booster,Posiciones_Booster,Tipo_de_Booster) values ('Dios','UK/haru#3579','SoyUnEnano@hotmail.com','La Aldea Pitufa','plata','lan','Paypal','JunGler','Aram level');
 GO
 
 Create procedure usp_registrar (
-	@ID_Booster varchar (15),
 	@Usuario_Booster varchar (20),
 	@Discord_Booster varchar (20),
 	@Correo_Booster varchar (40),
@@ -38,11 +37,16 @@ Create procedure usp_registrar (
 )
 as
 begin
-Insert Into EloBooster(ID_Booster,Usuario_Booster,Discord_Booster,Correo_Booster,Pais_Booster,Rango_Booster,Servidores_Booster,Metodo_de_pago_Booster,Posiciones_Booster,Tipo_de_Booster)Values(@ID_Booster,@Usuario_Booster,@Discord_Booster,@Correo_Booster,@Pais_Booster,@Rango_Booster,@Servidores_Booster,@Metodo_de_pago_Booster,@Posiciones_Booster,@Tipo_de_Booster)
+Insert Into EloBooster(Usuario_Booster,Discord_Booster,Correo_Booster,Pais_Booster,Rango_Booster,Servidores_Booster,Metodo_de_pago_Booster,Posiciones_Booster,Tipo_de_Booster)Values(@Usuario_Booster,@Discord_Booster,@Correo_Booster,@Pais_Booster,@Rango_Booster,@Servidores_Booster,@Metodo_de_pago_Booster,@Posiciones_Booster,@Tipo_de_Booster)
 end
+
 GO
+-- EXECUTE REGISTRO --
+Execute usp_registrar 'Dios','UK/haru#3579','SoyUnEnano@hotmail.com','La Aldea Pitufa','plata','lan','Paypal','JunGler','Aram level'
+GO
+
 Create procedure usp_Actualizar (
-	@ID_Booster varchar (15),
+	@ID_Booster int,
 	@Usuario_Booster varchar (20),
 	@Discord_Booster varchar (20),
 	@Correo_Booster varchar (40),
@@ -59,6 +63,10 @@ update EloBooster set @Usuario_Booster = Usuario_Booster,@Discord_Booster = Disc
 end
 
 GO
+-- EXECUTE ACTUALIZAR --
+Execute usp_Actualizar 1,'Dios','UK/haru#3579','SoyUnEnano@hotmail.com','La Aldea Pitufa','plata','lan','Paypal','JunGler','Aram level';
+
+GO
 
 Create procedure usp_eliminar (
 @ID_Booster varchar (15)
@@ -71,8 +79,12 @@ end
 
 GO
 
+EXECUTE usp_eliminar '3';
+
+GO
+
 Create procedure usp_Obtener (
-@ID_Booster varchar (15)
+@ID_Booster int 
 )
 as
 begin
@@ -82,9 +94,17 @@ end
 
 GO
 
+Execute usp_Obtener 1;
+
+GO
+
 Create procedure usp_Listar
 as
 begin
 
 Select * from EloBooster
 end
+
+Execute usp_Listar;
+
+-- AKARI\SQLEXPRESS (AKARI\braya) --
