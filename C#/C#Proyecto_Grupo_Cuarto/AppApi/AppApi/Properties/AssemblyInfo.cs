@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // La información general sobre un ensamblado se controla mediante el siguiente 
 // conjunto de atributos. Cambie los valores de estos atributos para modificar la información
 // asociada a un ensamblado.
-[assembly: AssemblyTitle("ProyectoEloBoost")]
+[assembly: AssemblyTitle("AppApi")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("ProyectoEloBoost")]
+[assembly: AssemblyProduct("AppApi")]
 [assembly: AssemblyCopyright("Copyright ©  2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // El siguiente GUID sirve como ID de typelib si este proyecto se expone a COM
-[assembly: Guid("dcddc904-42de-4d19-b5d7-2222cdb2af1b")]
+[assembly: Guid("a2dccee6-6c0b-4a2b-a505-0c69916d07ec")]
 
 // La información de versión de un ensamblado consta de los siguientes cuatro valores:
 //

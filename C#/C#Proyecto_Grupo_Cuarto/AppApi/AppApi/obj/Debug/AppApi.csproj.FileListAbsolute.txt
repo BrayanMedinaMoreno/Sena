@@ -1,0 +1,2 @@
+C:\Users\braya\source\repos\AppApi\AppApi\obj\Debug\AppApi.csproj.AssemblyReference.cache
+C:\Users\braya\source\repos\AppApi\AppApi\obj\Debug\AppApi.csproj.CoreCompileInputs.cache
