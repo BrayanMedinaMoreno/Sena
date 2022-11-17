@@ -55,7 +55,7 @@ namespace AppApi
         {
             try
             {
-                strCadenaCnx = " Data source = ARMAPRRQDFSD318\\SQLEXPRESS;Initial Catalog = DB_API_DATOS; Integrated Security = True";
+                strCadenaCnx = " Data source=ARMAPRRQDFSD318\\SQLEXPRESS;Initial Catalog=Boostlol;Integrated Security=True";
             objCnnBD.ConnectionString = strCadenaCnx;
                 objCnnBD.Open();
                 blnBDAbierta = true;

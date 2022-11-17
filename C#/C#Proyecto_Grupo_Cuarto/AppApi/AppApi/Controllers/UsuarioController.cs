@@ -17,7 +17,7 @@ namespace AppApi.Controllers
             return UsuarioData.Listar();
         }
         // GET api/<controller>/5
-        public List<Usuario> Get(int ID_Booster)
+        public List<Usuario> Get(string ID_Booster)
         {
             return UsuarioData.Obtener(ID_Booster);
         }

@@ -69,7 +69,7 @@ Execute usp_Actualizar 1,'Dios','UK/haru#3579','SoyUnEnano@hotmail.com','La Alde
 GO
 
 Create procedure usp_eliminar (
-@ID_Booster varchar (15)
+@ID_Booster INT
 )
 as
 begin
@@ -79,7 +79,7 @@ end
 
 GO
 
-EXECUTE usp_eliminar '3';
+EXECUTE usp_eliminar 1;
 
 GO
 
@@ -94,7 +94,7 @@ end
 
 GO
 
-Execute usp_Obtener 1;
+Execute usp_Obtener 1234;
 
 GO
 
