@@ -21,7 +21,7 @@ Create table EloBooster (
 	Fecha_de_Ingreso_Booster Datetime default getdate()
 );
 GO
-insert into EloBooster (Usuario_Booster,Discord_Booster,Correo_Booster,Pais_Booster,Rango_Booster,Servidores_Booster,Metodo_de_pago_Booster,Posiciones_Booster,Tipo_de_Booster) values ('Dios','UK/haru#3579','SoyUnEnano@hotmail.com','La Aldea Pitufa','plata','lan','Paypal','JunGler','Aram level');
+--insert into EloBooster (Usuario_Booster,Discord_Booster,Correo_Booster,Pais_Booster,Rango_Booster,Servidores_Booster,Metodo_de_pago_Booster,Posiciones_Booster,Tipo_de_Booster) values ('Dios','UK/haru#3579','SoyUnEnano@hotmail.com','La Aldea Pitufa','plata','lan','Paypal','JunGler','Aram level');
 GO
 
 Create procedure usp_registrar (
@@ -98,13 +98,16 @@ Execute usp_Obtener 1;
 
 GO
 
+go
 Create procedure usp_Listar
 as
 begin
-
-Select * from EloBooster
+Select * from EloBooster;
 end
+go 
 
-Execute usp_Listar;
+execute usp_Listar;
 
 -- AKARI\SQLEXPRESS (AKARI\braya) --
+
+-- ARMAPRRQDFSD318\SQLEXPRESS --
