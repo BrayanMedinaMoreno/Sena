@@ -31,7 +31,7 @@ namespace AppApi.Data
         {
             ConexionBD objEst = new ConexionBD();
             string sentencia;
-            sentencia = "EXECUTE usp_Actualizar '" + oUsuario.Usuario_Booster + "','" + oUsuario.Discord_Booster + "','" + oUsuario.Correo_Booster + "','" + oUsuario.Pais_Booster + "','" + oUsuario.Rango_Booster + "','" + oUsuario.Servidores_Booster + "','" + oUsuario.Metodo_de_pago_Booster + "','" + oUsuario.Posiciones_Booster + "','" + oUsuario.Tipo_de_Booster + "'";
+            sentencia = "EXECUTE usp_Actualizar " + oUsuario.ID_Booster + ",'"+ oUsuario.Usuario_Booster + "','" + oUsuario.Discord_Booster + "','" + oUsuario.Correo_Booster + "','" + oUsuario.Pais_Booster + "','" + oUsuario.Rango_Booster + "','" + oUsuario.Servidores_Booster + "','" + oUsuario.Metodo_de_pago_Booster + "','" + oUsuario.Posiciones_Booster + "','" + oUsuario.Tipo_de_Booster + "'";
             if (!objEst.EjecutarSentencia(sentencia, false))
             {
                 objEst = null;

@@ -59,7 +59,7 @@ Create procedure usp_Actualizar (
 )
 as
 begin
-update EloBooster set @Usuario_Booster = Usuario_Booster,@Discord_Booster = Discord_Booster,@Correo_Booster = Correo_Booster,@Pais_Booster = Pais_Booster,@Rango_Booster = Rango_Booster,@Servidores_Booster = Servidores_Booster,@Metodo_de_pago_Booster = Metodo_de_pago_Booster,@Posiciones_Booster = Posiciones_Booster,@Tipo_de_Booster = Tipo_de_Booster where ID_Booster = @ID_Booster
+update EloBooster set  Usuario_Booster = @Usuario_Booster,Discord_Booster = @Discord_Booster,Correo_Booster = @Correo_Booster,Pais_Booster = @Pais_Booster ,Rango_Booster = @Rango_Booster,Servidores_Booster = @Servidores_Booster,Metodo_de_pago_Booster = @Metodo_de_pago_Booster,Posiciones_Booster = @Posiciones_Booster,Tipo_de_Booster = @Tipo_de_Booster where ID_Booster = @ID_Booster
 end
 
 GO
