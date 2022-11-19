@@ -47,7 +47,7 @@ namespace AppApi.Data
         {
             ConexionBD objEst = new ConexionBD();
             string sentencia;
-            sentencia = "EXECUTE usp_eliminar '" + ID_Booster + "'";
+            sentencia = "EXECUTE usp_eliminar " + ID_Booster;
             if (!objEst.EjecutarSentencia(sentencia, false))
             {
                 objEst = null;

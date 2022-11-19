@@ -18,7 +18,7 @@ namespace AppApi
 
             config.Routes.MapHttpRoute(
                 name: "DefaultApi",
-                routeTemplate: "api/{controller}/{id}",
+                routeTemplate: "api/{controller}/{ID_Booster}",
                 defaults: new { id = RouteParameter.Optional }
             );
         }
