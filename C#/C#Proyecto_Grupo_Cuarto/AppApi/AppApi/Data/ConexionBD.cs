@@ -55,7 +55,8 @@ namespace AppApi
         {
             try
             {
-                strCadenaCnx = " Data source=ARMAPRRQDFSD318\\SQLEXPRESS;Initial Catalog=Boostlol1;Integrated Security=True";
+                //strCadenaCnx = " Data source=ARMAPRRQDFSD318\\SQLEXPRESS;Initial Catalog=Boostlol1;Integrated Security=True";
+                strCadenaCnx = "workstation id=DBoster.mssql.somee.com;packet size=4096;user id=BrayanMedina_SQLLogin_1;pwd=rzxu4r11dd;data source=DBoster.mssql.somee.com;persist security info=False;initial catalog=DBoster";
             objCnnBD.ConnectionString = strCadenaCnx;
                 objCnnBD.Open();
                 blnBDAbierta = true;
